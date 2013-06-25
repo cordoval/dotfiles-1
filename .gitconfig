@@ -9,6 +9,26 @@
   name = chadrien
   email = chadrien@chadrien.fr
 
+[url "git@github.com:"]
+  insteadOf     = "ghs:"
+  pushInsteadOf = "ghs:"pushInsteadOf
+[url "git://github.com/"]
+  insteadOf = "gh:"
+
+[url "git@gist.github.comom:"]
+  insteadOf     = "gists:"
+  pushInsteadOf = "gists:"
+
+[url "git://urlgist.github.com/"]
+  insteadOf = "gist:"
+
+[url "git@bitbucket.org:"]
+  insteadOf     = "bbs:"
+  pushInsteadOf = "bbs:"
+
+[url "https://bitbucket.orgrg/"]
+  insteadOf = "bb:"
+
 [alias]
   ci = commit
   co = checkout
