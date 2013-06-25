@@ -1,6 +1,6 @@
 ZSH=$HOME/.dotfiles/.oh-my-zsh
 
-plugins=(git symfony2 tmuxinator)
+plugins=(git symfony2 brew bundler capistrano coffee composer node npm rake rvm)
 
 source $ZSH/oh-my-zsh.sh
 export DISABLE_AUTO_TITLE=true
