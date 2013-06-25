@@ -1,0 +1,18 @@
+[core]
+  excludesfile = ~/.gitignore
+  editor = mvim -v
+
+[push]
+  default = simple
+
+[user]
+  name = chadrien
+  emai = chadrien@chadrien.fr
+
+[alias]
+  ci = commit
+  st = status -sb
+  standup = log --since yesterday --author chadrien
+  purr = pull --rebase
+  ready = rebase -i @{u}
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'

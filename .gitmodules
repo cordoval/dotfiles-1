@@ -1,0 +1,9 @@
+[submodule ".vim"]
+	path = .vim
+	url = https://github.com/chadrien/vimde.git
+[submodule ".config/powerline"]
+	path = .config/powerline
+	url = https://github.com/chadrien/powerline-config.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
