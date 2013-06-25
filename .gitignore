@@ -6,3 +6,6 @@ Session.vim
 
 # OS X
 .DS_Store
+
+# ruby
+.bundle
