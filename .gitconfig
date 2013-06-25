@@ -7,10 +7,12 @@
 
 [user]
   name = chadrien
-  emai = chadrien@chadrien.fr
+  email = chadrien@chadrien.fr
 
 [alias]
   ci = commit
+  co = checkout
+  br = branch
   st = status -sb
   standup = log --since yesterday --author chadrien
   purr = pull --rebase
