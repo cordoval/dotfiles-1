@@ -9,6 +9,17 @@
   name = chadrien
   email = chadrien@chadrien.fr
 
+[difftool "Kaleidoscope"]
+  cmd = ksdiff \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+  prompt = false
+
+[diff]
+  mnemonicprefix = true
+  # Mac OS x
+  tool           = Kaleidoscope
+
 [url "git@github.com:"]
   insteadOf     = "ghs:"
   pushInsteadOf = "ghs:"pushInsteadOf
