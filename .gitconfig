@@ -49,3 +49,5 @@
   purr = pull --rebase
   ready = rebase -i @{u}
   lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  master = checkout master
+  develop = checkout develop
