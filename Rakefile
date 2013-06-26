@@ -1,3 +1,58 @@
+desc "Update the dotfiles repo"
+task :update do
+  puts " Cleaning the folder… ".bg_brown.black
+  `git reset --hard > /dev/null`
+  puts " Done! ".bg_green.black
+
+  puts " Grabbing latest changes… ".bg_brown.black
+  `git pull > /dev/null`
+  puts " Done! ".bg_green.black
+
+  puts " Updating dependencies… ".bg_brown.black
+  `git submodule sync > /dev/null`
+  `git submodule update --init > /dev/null`
+  puts " Done! ".bg_green.black
+end
+
+desc "Install the dotfiles"
+task :install => [:folders, :symlinks] do
+end
+
+task :folders do
+  create_list = [
+    "#{ENV['HOME']}/.config"
+  ]
+
+  create_list.each do |folder|
+    FileUtils.mkdir_p folder
+  end
+end
+
+task :symlinks do
+  symlinks = {
+    '.gitconfig'        => ".gitconfig",
+    '.gitignore'        => ".gitignore",
+    '.tmux.conf'        => ".tmux.conf",
+    '.vim'              => ".vim",
+    '.vimrc'            => ".vimrc",
+    '.zshrc'            => ".zshrc",
+    '.config/powerline' => ".config/powerline",
+  }
+
+  symlinks.each do |from_dots, symlink|
+    from_dots = "#{ENV['HOME']}/.dotfiles/#{from_dots}"
+    symlink   = "#{ENV['HOME']}/#{symlink}"
+
+    FileUtils.rm_rf(symlink) if File.exists?(symlink) || File.symlink?(symlink)
+
+    FileUtils.ln_s from_dots, symlink
+  end
+end
+
+desc "Install or update the dotfiles."
+task :default => [:update, :install] do
+end
+
 # add some colors
 class String
   def black;          "\033[30m#{self}\033[0m" end
@@ -18,20 +73,4 @@ class String
   def bg_gray;        "\033[47m#{self}\033[0m" end
   def bold;           "\033[1m#{self}\033[22m" end
   def reverse_color;  "\033[7m#{self}\033[27m" end
-end
-
-desc "Update the dotfiles repo"
-task :update do
-  puts " Cleaning the folder… ".bg_brown.black
-  `git reset --hard > /dev/null`
-  puts " Done! ".bg_green.black
-
-  puts " Grabbing latest changes… ".bg_brown.black
-  `git pull > /dev/null`
-  puts " Done! ".bg_green.black
-
-  puts " Updating dependencies… ".bg_brown.black
-  `git submodule sync > /dev/null`
-  `git submodule update --init > /dev/null`
-  puts " Done! ".bg_green.black
 end
