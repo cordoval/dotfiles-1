@@ -10,3 +10,6 @@ Session.vim
 # ruby
 .bundle
 .sass-cache
+
+# python
+*.py[cod]
