@@ -10,7 +10,11 @@
   email = chadrien@chadrien.fr
 
 [difftool "Kaleidoscope"]
-  cmd = ksdiff \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 
 [difftool]
   prompt = false
@@ -18,7 +22,10 @@
 [diff]
   mnemonicprefix = true
   # Mac OS x
-  tool           = Kaleidoscope
+  tool = Kaleidoscope
+
+[merge]
+  tool = Kaleidoscope
 
 [url "git@github.com:"]
   insteadOf     = "ghs:"
@@ -51,3 +58,5 @@
   lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   master = checkout master
   develop = checkout develop
+[mergetool]
+  prompt = false
