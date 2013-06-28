@@ -9,23 +9,23 @@
   name = chadrien
   email = chadrien@chadrien.fr
 
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "mvimdiff"]
+  cmd = mvimdiff -v -f "$LOCAL" "$REMOTE"
 
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
+[diff]
+  tool = mvimdiff
 
 [difftool]
   prompt = false
 
-[diff]
-  mnemonicprefix = true
-  # Mac OS x
-  tool = Kaleidoscope
+[mergetool "mvimdiff"]
+  cmd = mvimdiff -v -f "$LOCAL" "$MERGED" "$REMOTE"
 
 [merge]
-  tool = Kaleidoscope
+  tool = mvimdiff
+
+[mergetool]
+  prompt = false
 
 [url "git@github.com:"]
   insteadOf     = "ghs:"
@@ -58,5 +58,5 @@
   lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   master = checkout master
   develop = checkout develop
-[mergetool]
-  prompt = false
+  dt = difftool
+  mt = mergetool
