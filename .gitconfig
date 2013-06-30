@@ -8,13 +8,10 @@
 [push]
   default = simple
 
-[user]
-  name = chadrien
-  email = chadrien@chadrien.fr
-
 [url "git@github.com:"]
   insteadOf     = "ghs:"
   pushInsteadOf = "ghs:"pushInsteadOf
+
 [url "git://github.com/"]
   insteadOf = "gh:"
 
