@@ -2,30 +2,15 @@
   excludesfile = ~/.gitignore
   editor = mvim -v
 
+[include]
+  path = ~/.gitconfig.local
+
 [push]
   default = simple
 
 [user]
   name = chadrien
   email = chadrien@chadrien.fr
-
-[difftool "mvimdiff"]
-  cmd = mvimdiff -v -f "$LOCAL" "$REMOTE"
-
-[diff]
-  tool = mvimdiff
-
-[difftool]
-  prompt = false
-
-[mergetool "mvimdiff"]
-  cmd = mvimdiff -v -f "$LOCAL" "$MERGED" "$REMOTE"
-
-[merge]
-  tool = mvimdiff
-
-[mergetool]
-  prompt = false
 
 [url "git@github.com:"]
   insteadOf     = "ghs:"
