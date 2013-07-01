@@ -55,7 +55,7 @@
   master  = checkout master
   develop = checkout develop
   ready   = rebase -i @{u}
-  standup = log --since yesterday
+  standup = !git lg --since yesterday
   purr    = pull --rebase
   cl      = clone
   finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH; }; f"
