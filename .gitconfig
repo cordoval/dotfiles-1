@@ -33,11 +33,11 @@
   # Commit
   amend = commit --amend -C HEAD
   cp    = cherry-pick -ex
-  undo  = !git reset --soft HEAD~ && git ls
+  undo  = !git reset --soft HEAD~ && git st
   ci    = commit
 
   # Staging
-  addall = !git add -u && git add . && git ls
+  addall = !git add -u && git add . && git st
   patch  = add --patch
   unadd  = !git reset HEAD --
 
