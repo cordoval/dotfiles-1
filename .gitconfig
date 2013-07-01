@@ -74,6 +74,6 @@
 
   # Git Flow
   feature = flow feature
-  hotfix  = flow hostfix
+  hotfix  = flow hotfix
   support = flow support
   release = flow release
