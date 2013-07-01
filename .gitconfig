@@ -42,3 +42,5 @@
   develop = checkout develop
   dt = difftool
   mt = mergetool
+  aliases = "!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort"
+  cl = clone
