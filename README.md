@@ -42,7 +42,7 @@ First create a local config file: `touch ~/.gitconfig.local`
 
 Then open the file and insert this:
 
-```bash
+```ini
 [user]
   name = <your username>
   email = <your email>
