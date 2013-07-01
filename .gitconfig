@@ -51,8 +51,8 @@
   go  = "!f() { [ -z $1 ] && echo \"Usage: git go <branch>\" && exit 1; git branch $1 2>/dev/null; git checkout $1; }; f"
 
   # Workflow
-  master  = go master
-  develop = go develop
+  master  = checkout master
+  develop = checkout develop
   ready   = rebase -i @{u}
   standup = log --since yesterday
   purr    = pull --rebase
