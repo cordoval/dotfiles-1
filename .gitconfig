@@ -71,3 +71,9 @@
   aliases = "!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^ = ]*\\) = \\(.*\\)/\\1\t = > \\2/' | sort"
   dt      = difftool
   mt      = mergetool
+
+  # Git Flow
+  feature = flow feature
+  hotfix  = flow hostfix
+  support = flow support
+  release = flow release
