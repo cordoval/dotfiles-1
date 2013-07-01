@@ -30,17 +30,44 @@
   insteadOf = "bb:"
 
 [alias]
-  ci = commit
-  co = checkout
-  br = branch
-  st = status -sb
-  standup = log --since yesterday --author chadrien
-  purr = pull --rebase
-  ready = rebase -i @{u}
-  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-  master = checkout master
+  # Commit
+  amend = commit --amend -C HEAD
+  cp    = cherry-pick -ex
+  undo  = !git reset --soft HEAD~ && git ls
+  ci    = commit
+
+  # Staging
+  addall = !git add -u && git add . && git ls
+  patch  = add --patch
+  unadd  = !git reset HEAD --
+
+  # Branches
+  br  = branch -v
+  bra = !git br -a
+  brr = !git br -r
+  brn = !git br --no-merged
+  cb  = checkout -b
+  pwd = rev-parse --abbrev-ref HEAD
+
+  # Workflow
+  co      = checkout
+  master  = checkout master
   develop = checkout develop
-  dt = difftool
-  mt = mergetool
-  aliases = "!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort"
-  cl = clone
+  ready   = rebase -i @{u}
+  standup = log --since yesterday
+  purr    = pull --rebase
+  cl      = clone
+  go      = "!f() { [ -z $1 ] && echo \"Usage: git go <branch>\" && exit 1; git branch $1 2>/dev/null; git checkout $1; }; f"
+  finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH; }; f"
+  wip     = "!f() { BRANCH=$(git pwd); (git go wip/$1) && git addall && git commit -m'Work in progress' && git checkout $BRANCH; }; f"
+
+  # Status
+  st = status -sb
+
+  # Logs
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+  # Utils
+  aliases = "!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^ = ]*\\) = \\(.*\\)/\\1\t = > \\2/' | sort"
+  dt      = difftool
+  mt      = mergetool
