@@ -59,7 +59,8 @@
   purr    = pull --rebase
   cl      = clone
   finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH; }; f"
-  wip     = "!f() { BRANCH=$(git pwd); (git go wip/$1) && git addall && git commit -m'Work in progress' && git checkout $BRANCH; }; f"
+  wip     = !git addall && git commit -m'Work in progress'
+  unwip   = !git reset --soft HEAD~ && git unadd
 
   # Status
   st = status -sb
