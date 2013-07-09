@@ -16,3 +16,6 @@ Session.vim
 
 # ctags
 tags
+
+# JS
+node_modules
