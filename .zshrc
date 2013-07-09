@@ -3,7 +3,7 @@ ZSH=$HOME/.dotfiles/.oh-my-zsh
 # omz
 ZSH_THEME="../../chadrien"
 
-plugins=(git symfony2 brew bundler capistrano coffee composer node npm rake rvm git-flow)
+plugins=(git symfony2 brew bundler capistrano coffee composer node npm rake rvm git-flow tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 export DISABLE_AUTO_TITLE=true
