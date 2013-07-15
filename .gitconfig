@@ -55,7 +55,7 @@
   standup = !git lg --since yesterday
   purr    = pull --rebase
   cl      = clone
-  finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH; }; f"
+  finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH && git go $BRANCH; }; f"
   wip     = !git addall && git commit -m'Work in progress'
   unwip   = !git reset --soft HEAD~ && git unadd
 
