@@ -54,6 +54,7 @@
   ready   = rebase -i @{u}
   standup = !git lg --since yesterday
   purr    = pull --rebase
+  pushall = "!f() { git push --all && git push --tags; }; f"
   cl      = clone
   finish  = "!f() { BRANCH=$(git pwd); git rebase -i $1 && git checkout $1 && git merge $BRANCH && git go $BRANCH; }; f"
   wip     = !git addall && git commit -m'Work in progress'
