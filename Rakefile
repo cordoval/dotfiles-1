@@ -36,6 +36,7 @@ task :symlinks do
     '.vim'              => ".vim",
     '.vimrc'            => ".vimrc",
     '.zshrc'            => ".zshrc",
+    '.ctags'            => ".ctags",
     '.config/powerline' => ".config/powerline",
   }
 
